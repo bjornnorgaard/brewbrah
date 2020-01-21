@@ -1,4 +1,54 @@
-<!-- NG-ZORRO -->
-<a href="https://github.com/NG-ZORRO/ng-zorro-antd" target="_blank" style="display: flex;align-items: center;justify-content: center;height: 100%;width: 100%;">
-  <img height="300" src="https://img.alicdn.com/tfs/TB1X.qJJgHqK1RjSZFgXXa7JXXa-89-131.svg">
-</a>
+<nz-card nzHoverable class="card">
+
+  <form nz-form [formGroup]="form">
+
+    <nz-form-item>
+      <nz-form-label>How much coffee</nz-form-label>
+      <nz-form-control>
+        <nz-input-group nzAddOnAfter="ml">
+          <input nz-input nzSize="large" formControlName="wantedAmountMl"/>
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label>Water needed</nz-form-label>
+      <nz-form-control>
+        <nz-input-group nzAddOnAfter="ml">
+          <input nz-input nzSize="large" formControlName="waterNeeded"/>
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label>Coffee needed</nz-form-label>
+      <nz-form-control>
+        <nz-input-group nzAddOnAfter="g">
+          <input nz-input nzSize="large" formControlName="coffeeGram"/>
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label>Coffee/Water ratio</nz-form-label>
+      <nz-form-control>
+        <nz-input-group nzAddOnAfter="ratio">
+          <input nz-input nzSize="large" formControlName="brewRatio"/>
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label>Water absorbed by grounds</nz-form-label>
+      <nz-form-control>
+        <nz-input-group nzAddOnAfter="ml">
+          <input nz-input nzSize="large" formControlName="wastedWaterPerGramCoffee"/>
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+
+  </form>
+
+</nz-card>
+
+
