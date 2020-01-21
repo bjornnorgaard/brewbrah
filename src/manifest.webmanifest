@@ -2,7 +2,7 @@
   "name": "Brewbrah",
   "short_name": "Brewbrah",
   "theme_color": "#88441e",
-  "background_color": "#fafafa",
+  "background_color": "#88441e",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
