@@ -6,7 +6,7 @@
       <nz-form-label>How much coffee</nz-form-label>
       <nz-form-control>
         <nz-input-group nzAddOnAfter="ml">
-          <input nz-input nzSize="large" formControlName="wantedAmountMl"/>
+          <input type="number" nz-input nzSize="large" formControlName="desiredAmount"/>
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
@@ -15,7 +15,7 @@
       <nz-form-label>Water needed</nz-form-label>
       <nz-form-control>
         <nz-input-group nzAddOnAfter="ml">
-          <input nz-input nzSize="large" formControlName="waterNeeded"/>
+          <input type="number" nz-input nzSize="large" formControlName="waterNeeded"/>
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
@@ -24,7 +24,7 @@
       <nz-form-label>Coffee needed</nz-form-label>
       <nz-form-control>
         <nz-input-group nzAddOnAfter="g">
-          <input nz-input nzSize="large" formControlName="coffeeGram"/>
+          <input type="number" nz-input nzSize="large" formControlName="coffeeNeeded"/>
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
@@ -33,7 +33,7 @@
       <nz-form-label>Coffee/Water ratio</nz-form-label>
       <nz-form-control>
         <nz-input-group nzAddOnAfter="ratio">
-          <input nz-input nzSize="large" formControlName="brewRatio"/>
+          <input type="number" nz-input nzSize="large" formControlName="brewRatio"/>
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
@@ -42,7 +42,7 @@
       <nz-form-label>Water absorbed by grounds</nz-form-label>
       <nz-form-control>
         <nz-input-group nzAddOnAfter="ml">
-          <input nz-input nzSize="large" formControlName="wastedWaterPerGramCoffee"/>
+          <input type="number" nz-input nzSize="large" formControlName="waterAbsorbed"/>
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
