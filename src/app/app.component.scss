@@ -1,20 +1,30 @@
 .this {
   margin: 1em;
-}
 
-nz-card {
-  opacity: 0.97;
-}
+  h1 {
+    font-family: 'Bowlby One SC', cursive;
+    text-align: center;
+    font-weight: bold;
+    font-size: 3em;
+    color: white;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+  }
 
-nz-form-label {
-  padding-bottom: 0;
-}
+  nz-card {
+    opacity: 0.97;
+  }
 
-nz-form-item {
-  margin-bottom: 0.6em;
-}
+  nz-form-label {
+    padding-bottom: 0;
+  }
 
-button {
-  width: 100%;
-  margin-top: 1em;
+  nz-form-item {
+    margin-bottom: 0.6em;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 1em;
+  }
 }
