@@ -1,54 +1,70 @@
-<nz-card nzHoverable class="card">
+<mat-toolbar color="primary">
 
-  <form nz-form [formGroup]="form">
+  <mat-toolbar-row>
+    <mat-icon>free_breakfast</mat-icon>
+    <span></span>
+    <span>&nbsp;Brewbrah</span>
+  </mat-toolbar-row>
 
-    <nz-form-item>
-      <nz-form-label>How much coffee</nz-form-label>
-      <nz-form-control>
-        <nz-input-group nzAddOnAfter="ml">
-          <input type="number" nz-input nzSize="large" formControlName="desiredAmount"/>
-        </nz-input-group>
-      </nz-form-control>
-    </nz-form-item>
+</mat-toolbar>
 
-    <nz-form-item>
-      <nz-form-label>Water needed</nz-form-label>
-      <nz-form-control>
-        <nz-input-group nzAddOnAfter="ml">
-          <input type="number" readonly nz-input nzSize="large" formControlName="waterNeeded"/>
-        </nz-input-group>
-      </nz-form-control>
-    </nz-form-item>
+<div class="this">
 
-    <nz-form-item>
-      <nz-form-label>Coffee needed</nz-form-label>
-      <nz-form-control>
-        <nz-input-group nzAddOnAfter="g">
-          <input type="number" nz-input nzSize="large" formControlName="coffeeNeeded"/>
-        </nz-input-group>
-      </nz-form-control>
-    </nz-form-item>
+  <nz-card nzHoverable class="card">
 
-    <nz-form-item>
-      <nz-form-label>Coffee/Water ratio</nz-form-label>
-      <nz-form-control>
-        <nz-input-group nzAddOnAfter="ratio">
-          <input type="number" nz-input nzSize="large" formControlName="brewRatio"/>
-        </nz-input-group>
-      </nz-form-control>
-    </nz-form-item>
+    <form nz-form [formGroup]="form">
 
-    <nz-form-item>
-      <nz-form-label>Water absorbed by grounds</nz-form-label>
-      <nz-form-control>
-        <nz-input-group nzAddOnAfter="ml">
-          <input type="number" nz-input nzSize="large" formControlName="waterAbsorbed"/>
-        </nz-input-group>
-      </nz-form-control>
-    </nz-form-item>
+      <nz-form-item>
+        <nz-form-label>How much coffee</nz-form-label>
+        <nz-form-control>
+          <nz-input-group nzAddOnAfter="ml">
+            <input type="number" step="0.1" nz-input nzSize="large" formControlName="desiredAmount"/>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
 
-  </form>
+      <nz-form-item>
+        <nz-form-label>Water needed</nz-form-label>
+        <nz-form-control>
+          <nz-input-group nzAddOnAfter="ml">
+            <input type="number" readonly nz-input nzSize="large" formControlName="waterNeeded"/>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
 
-</nz-card>
+      <nz-form-item>
+        <nz-form-label>Coffee needed</nz-form-label>
+        <nz-form-control>
+          <nz-input-group nzAddOnAfter="g">
+            <input type="number" nz-input nzSize="large" formControlName="coffeeNeeded"/>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
 
+      <nz-form-item>
+        <nz-form-label>Coffee/Water ratio</nz-form-label>
+        <nz-form-control>
+          <nz-input-group nzAddOnAfter="ratio">
+            <input type="number" nz-input nzSize="large" formControlName="brewRatio"/>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
 
+      <nz-form-item>
+        <nz-form-label>Water absorbed by grounds</nz-form-label>
+        <nz-form-control>
+          <nz-input-group nzAddOnAfter="ml">
+            <input type="number" nz-input nzSize="large" formControlName="waterAbsorbed"/>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+    </form>
+
+  </nz-card>
+
+  <button nz-button nzType="default" (click)="goToSource()" [nzLoading]="goToSourceClicked">
+    View source on GitHub
+  </button>
+
+</div>

@@ -8,6 +8,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
 
+  public goToSourceClicked = false;
+
   public form = new FormGroup({
     desiredAmount: new FormControl(1234),
     waterNeeded: new FormControl(1000),
@@ -42,4 +44,8 @@ export class AppComponent implements OnInit {
     this.form.controls.desiredAmount.setValue(1000);
   }
 
+  public goToSource(): void {
+    this.goToSourceClicked = true;
+    window.location.href = 'https://github.com/bjornnorgaard/brewbrah';
+  }
 }

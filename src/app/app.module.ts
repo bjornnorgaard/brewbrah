@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 registerLocaleData(en);
 
@@ -24,9 +26,12 @@ registerLocaleData(en);
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NzIconModule
+    NzIconModule,
+    MatToolbarModule,
+    MatIconModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [{provide: NZ_I18N, useValue: en_US}],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
