@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AngularFireAnalytics } from '@angular/fire/analytics';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -46,6 +47,10 @@ export class AppComponent implements OnInit {
     });
 
     this.form.controls.desiredAmount.setValue(1000);
+
+    this.form.valueChanges.pipe(debounceTime(1000)).subscribe(formValue => {
+      this.analytics.logEvent('brew_calculated', { brew: formValue });
+    });
   }
 
   public goToSource(): void {
