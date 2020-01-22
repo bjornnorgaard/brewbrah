@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AngularFireAnalytics } from '@angular/fire/analytics';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,9 @@ export class AppComponent implements OnInit {
     brewRatio: new FormControl(17),
     waterAbsorbed: new FormControl(2)
   });
+
+  constructor(private analytics: AngularFireAnalytics) {
+  }
 
   ngOnInit(): void {
     this.form.controls.desiredAmount.valueChanges.subscribe(desired => {
@@ -45,8 +49,11 @@ export class AppComponent implements OnInit {
   }
 
   public goToSource(): void {
-    this.goToSourceClicked = true;
-    window.location.href = 'https://github.com/bjornnorgaard/brewbrah';
+    this.analytics.logEvent('go_to_source_clicked', {brew: this.form.value})
+      .then(() => {
+        this.goToSourceClicked = true;
+        window.location.href = 'https://github.com/bjornnorgaard/brewbrah';
+      });
   }
 
   private static roundToDecimals(num: number, decimals: number = 0): number {
