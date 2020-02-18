@@ -1,5 +1,8 @@
 # Brewbrah
 
+![Deploy](https://github.com/bjornnorgaard/brewbrah/workflows/Deploy/badge.svg)
+![Build](https://github.com/bjornnorgaard/brewbrah/workflows/Build/badge.svg)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
 ## Development server
