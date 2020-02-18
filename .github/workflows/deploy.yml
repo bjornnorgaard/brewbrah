@@ -1,6 +1,6 @@
-name: Node CI
+name: Deploy
 
-#on: [push]
+on: [push]
 
 jobs:
   build:
@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [12.x, 10.x]
 
     steps:
       - uses: actions/checkout@v1
