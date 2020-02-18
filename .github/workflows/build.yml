@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Restore NPM packages
+      - name: Install npm packages
         run: npm ci
-      - name: Run NPM build
+      - name: Run npm build
         run: npm run build
