@@ -17,8 +17,3 @@ jobs:
         run: npm ci
       - name: Run npm build
         run: npm run build
-      - name: Upload dist
-        uses: actions/upload-artifact@v1
-        with:
-          name: "dist-$GITHUB_SHA"
-          path: dist
