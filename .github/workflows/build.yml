@@ -1,0 +1,16 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: build node
+    runs-on: ubuntu-latest
+    steps:
+      - name: first step
+        run: echo "Im the first step"
+      - name: second step
+        run: echo "the second step"
+      - name: last step
+        run: npm ci
+        run: npm run build
