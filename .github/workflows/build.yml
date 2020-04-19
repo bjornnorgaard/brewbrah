@@ -1,6 +1,11 @@
 name: Build Angular
 
-on: [pull_request]
+on:
+  pull_request:
+    paths:
+      - "angular/*"
+    branches:
+      - master
 
 jobs:
   Build:
