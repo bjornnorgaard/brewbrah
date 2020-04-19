@@ -1,6 +1,11 @@
 name: Build Flutter
 
-on: [pull_request]
+on:
+  pull_request:
+    paths:
+      - "flutter/*"
+    branches:
+      - master
 
 jobs:
   Build:
