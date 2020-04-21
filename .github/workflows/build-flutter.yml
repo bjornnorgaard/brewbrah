@@ -16,9 +16,9 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: "12.x"
-      - uses: subosito/flutter-action@v1
+      - uses: subosito/flutter-action@v1.3.0
         with:
-          flutter-version: "1.9.1+hotfix.6"
+          flutter-version: "1.16.3"
       - run: |
           cd flutter
           flutter pub get
