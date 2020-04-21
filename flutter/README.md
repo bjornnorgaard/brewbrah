@@ -1,4 +1,4 @@
-# brewbrah
+# Brewbrah
 
 A new Flutter application.
 
