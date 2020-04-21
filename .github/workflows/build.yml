@@ -1,6 +1,11 @@
-name: Build
+name: Build Angular
 
-on: [pull_request]
+on:
+  pull_request:
+    paths:
+      - "angular/*"
+    branches:
+      - master
 
 jobs:
   Build:
@@ -17,7 +22,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install npm packages
-        run: npm ci
-      - name: Run npm build
-        run: npm run build
+      - name: Build
+        run: |
+          cd angular
+          npm ci
+          npm run build
