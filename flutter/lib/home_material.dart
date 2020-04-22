@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeMaterial extends StatelessWidget {
+  var desiredAmount = 0;
+  var ratio = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,18 +18,48 @@ class HomeMaterial extends StatelessWidget {
                 child: Text("Brew Brah", style: TextStyle(fontSize: 50)),
               ),
               BrewForm(),
-              RaisedButton(
-                onPressed: () => print("Go to source"),
-                onLongPress: () => print("Go to long source"),
-                color: Colors.blue,
-                textColor: Colors.white,
-                elevation: 10,
-                child: Text("View source on Github"),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 20, bottom: 25),
+                  child: Center(
+                    child: Column(
+                      // mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "You will need",
+                          style: TextStyle(fontSize: 30, letterSpacing: 3),
+                        ),
+                        Text(
+                          "60g",
+                          style: TextStyle(fontSize: 80),
+                        ),
+                        Text(
+                          "of good coffee",
+                          style: TextStyle(fontSize: 25, letterSpacing: 10),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
               ),
+              // GoToGithubButton()
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class GoToGithubButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      onPressed: () => print("Go to source"),
+      onLongPress: () => print("Go to long source"),
+      color: Colors.white,
+      textColor: Colors.blue,
+      child: Text("View source on Github"),
     );
   }
 }
