@@ -9,41 +9,43 @@ class HomeMaterial extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(25.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Center(
-                child: Text("Brew Brah", style: TextStyle(fontSize: 50)),
-              ),
-              BrewForm(),
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 20, bottom: 25),
-                  child: Center(
-                    child: Column(
-                      // mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          "You will need",
-                          style: TextStyle(fontSize: 30, letterSpacing: 3),
-                        ),
-                        Text(
-                          "60g",
-                          style: TextStyle(fontSize: 80),
-                        ),
-                        Text(
-                          "of good coffee",
-                          style: TextStyle(fontSize: 25, letterSpacing: 10),
-                        )
-                      ],
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(25.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Center(
+                  child: Text("Brew Brah", style: TextStyle(fontSize: 50)),
+                ),
+                BrewForm(),
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20, bottom: 25),
+                    child: Center(
+                      child: Column(
+                        // mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "You will need",
+                            style: TextStyle(fontSize: 30, letterSpacing: 3),
+                          ),
+                          Text(
+                            "60g",
+                            style: TextStyle(fontSize: 80),
+                          ),
+                          Text(
+                            "of good coffee",
+                            style: TextStyle(fontSize: 25, letterSpacing: 10),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              // GoToGithubButton()
-            ],
+                // GoToGithubButton()
+              ],
+            ),
           ),
         ),
       ),
