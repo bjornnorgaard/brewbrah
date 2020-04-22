@@ -1,9 +1,37 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomeMaterial extends StatelessWidget {
-  var desiredAmount = 0;
-  var ratio = 0;
+class HomeMaterial extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => HomeMaterialState();
+}
+
+class HomeMaterialState extends State<HomeMaterial> {
+  int desiredAmount;
+  int ratio ;
+
+  @override
+  void initState() {
+    super.initState();
+    desiredAmount = 1000;
+    ratio = 17;
+  }
+
+  void desiredAmountUpdated(newValue) {
+    setState(() {
+      if (newValue != 0) {
+        desiredAmount = newValue;
+      }
+    });
+  }
+
+  void ratioUpdated(newValue) {
+    setState(() {
+      if (newValue != 0) {
+        ratio = newValue;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,20 +46,20 @@ class HomeMaterial extends StatelessWidget {
                 Center(
                   child: Text("Brew Brah", style: TextStyle(fontSize: 50)),
                 ),
-                BrewForm(),
+                BrewForm(
+                    desiredAmount, desiredAmountUpdated, ratio, ratioUpdated),
                 Card(
                   child: Padding(
                     padding: const EdgeInsets.only(top: 20, bottom: 25),
                     child: Center(
                       child: Column(
-                        // mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
                             "You will need",
                             style: TextStyle(fontSize: 30, letterSpacing: 3),
                           ),
                           Text(
-                            "60g",
+                            "${(desiredAmount / ratio).toStringAsFixed(1)}g",
                             style: TextStyle(fontSize: 80),
                           ),
                           Text(
@@ -67,6 +95,16 @@ class GoToGithubButton extends StatelessWidget {
 }
 
 class BrewForm extends StatefulWidget {
+  int desiredAmount = 1000;
+  int ratio = 15;
+
+  Function(int) desiredAmountUpdated;
+
+  Function(int) ratioUpdated;
+
+  BrewForm(this.desiredAmount, this.desiredAmountUpdated, this.ratio,
+      this.ratioUpdated);
+
   @override
   State<StatefulWidget> createState() => _BrewFormState();
 }
@@ -86,18 +124,18 @@ class _BrewFormState extends State<BrewForm> {
             children: <Widget>[
               TextFormField(
                 decoration: InputDecoration(
+                  border: InputBorder.none,
                   labelText: "How much coffee are we making?",
                   hintText: "1000 is four big cups",
                   suffixText: "grams",
-                  prefixIcon: Icon(Icons.local_cafe),
-                  border: InputBorder.none,
+                  prefixIcon: Icon(
+                    Icons.local_cafe,
+                  ),
                 ),
                 keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value.isEmpty) {
-                    return "Enter something dammit";
-                  }
-                  return null;
+                initialValue: "1000",
+                onChanged: (value) {
+                  widget.desiredAmountUpdated(int.parse(value));
                 },
               ),
               TextFormField(
@@ -109,23 +147,11 @@ class _BrewFormState extends State<BrewForm> {
                   border: InputBorder.none,
                 ),
                 keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value.isEmpty) {
-                    return "Enter something dammit";
-                  }
-                  return null;
+                initialValue: "17",
+                onChanged: (value) {
+                  widget.ratioUpdated(int.parse(value));
                 },
               ),
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: RaisedButton.icon(
-                  onPressed: () => print("go form"),
-                  icon: Icon(Icons.sort),
-                  label: Text("Go"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                ),
-              )
             ],
           ),
         ),
