@@ -1,5 +1,7 @@
+import 'package:brewbrah/coffee_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -38,18 +40,21 @@ class Home extends StatelessWidget {
                     Colors.deepOrangeAccent,
                   ],
                 ),
-//                image: DecorationImage(
-//                  image: AssetImage("assets/images/header4.gif"),
-//                ),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Align(
                     alignment: Alignment.topRight,
-                    child: Icon(
-                      Icons.menu,
+                    child: IconButton(
+                      icon: Icon(Icons.menu),
                       color: Colors.white,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => CoffeePage()),
+                        );
+                      },
                     ),
                   ),
                   SizedBox(height: 20),
@@ -63,13 +68,10 @@ class Home extends StatelessWidget {
                           alignment: Alignment.topLeft,
                         ),
                         Positioned(
-                         right: 30,
+                          right: 30,
                           child: Text(
                             "May your coffee kick in\n - before reality does.",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20
-                            ),
+                            style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                         ),
                         Container(),
