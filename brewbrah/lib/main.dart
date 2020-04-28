@@ -28,7 +28,7 @@ class Home extends StatelessWidget {
           ClipPath(
             clipper: MyClipper(),
             child: Container(
-              padding: EdgeInsets.only(left: 20, top: 60, right: 20),
+              padding: EdgeInsets.only(left: 20, top: 40, right: 20),
               height: 350,
               width: double.infinity,
               decoration: BoxDecoration(

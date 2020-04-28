@@ -8,6 +8,10 @@ class CoffeePage extends StatefulWidget {
 }
 
 class _CoffeePageState extends State<CoffeePage> {
+  double _shadowEdge = 3;
+  double _elementTop = 250;
+  double _elementHeight = 100;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +19,7 @@ class _CoffeePageState extends State<CoffeePage> {
       body: Stack(
         children: <Widget>[
           Positioned(
-            height: 250,
+            height: _elementTop,
             left: 0,
             right: 0,
             child: Container(
@@ -29,8 +33,19 @@ class _CoffeePageState extends State<CoffeePage> {
             ),
           ),
           Positioned(
+            top: _elementTop - _shadowEdge,
+            height: _elementHeight,
+            left: 0,
+            right: 0,
+            child: ClipOval(
+              child: Container(
+                color: Colors.grey.withOpacity(0.5),
+              ),
+            ),
+          ),
+          Positioned(
             top: 200,
-            height: 100,
+            height: _elementHeight,
             left: 0,
             right: 0,
             child: ClipOval(
@@ -46,8 +61,19 @@ class _CoffeePageState extends State<CoffeePage> {
             ),
           ),
           Positioned(
-            top: 250,
-            height: 100,
+            top: _elementTop - _shadowEdge,
+            height: _elementHeight,
+            left: 0,
+            right: 0,
+            child: ClipOval(
+              child: Container(
+                color: Colors.brown.withOpacity(0.5),
+              ),
+            ),
+          ),
+          Positioned(
+            top: _elementTop,
+            height: _elementHeight,
             left: 0,
             right: 0,
             child: ClipOval(
@@ -63,25 +89,19 @@ class _CoffeePageState extends State<CoffeePage> {
             ),
           ),
           Positioned(
-            top: 247,
+            top: _elementTop - _shadowEdge,
             left: 0,
             right: 0,
             bottom: 0,
             child: ClipPath(
               clipper: MyClipper(),
               child: Container(
-                // color: Colors.white,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                  colors: [Colors.grey.withOpacity(0.5), Colors.white.withOpacity(0.5)],
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                )),
+                color: Colors.grey.withOpacity(0.5),
               ),
             ),
           ),
           Positioned(
-            top: 250,
+            top: _elementTop,
             left: 0,
             right: 0,
             bottom: 0,
@@ -104,6 +124,7 @@ class _CoffeePageState extends State<CoffeePage> {
 }
 
 class MyClipper extends CustomClipper<Path> {
+
   @override
   Path getClip(Size size) {
     var path = Path();
