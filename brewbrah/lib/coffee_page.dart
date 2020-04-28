@@ -11,7 +11,7 @@ class _CoffeePageState extends State<CoffeePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.white,
       body: Stack(
         children: <Widget>[
           Positioned(
@@ -21,7 +21,7 @@ class _CoffeePageState extends State<CoffeePage> {
             child: Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Colors.orange, Colors.deepOrangeAccent],
+                  colors: [Colors.orange.withOpacity(0.8), Colors.deepOrange],
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
                 ),
