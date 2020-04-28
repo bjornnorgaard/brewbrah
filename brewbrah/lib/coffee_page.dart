@@ -72,12 +72,11 @@ class _CoffeePageState extends State<CoffeePage> {
               child: Container(
                 // color: Colors.white,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Colors.grey.withOpacity(0.5), Colors.white.withOpacity(0.5)],
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                  )
-                ),
+                    gradient: LinearGradient(
+                  colors: [Colors.grey.withOpacity(0.5), Colors.white.withOpacity(0.5)],
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                )),
               ),
             ),
           ),
@@ -90,12 +89,11 @@ class _CoffeePageState extends State<CoffeePage> {
               clipper: MyClipper(),
               child: Container(
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Colors.white, Colors.white],
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                  )
-                ),
+                    gradient: LinearGradient(
+                  colors: [Colors.white, Colors.white],
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                )),
               ),
             ),
           ),
@@ -112,7 +110,7 @@ class MyClipper extends CustomClipper<Path> {
     path.lineTo(0, size.height);
     path.lineTo(size.width, size.height);
     path.lineTo(size.width, 0);
-    path.quadraticBezierTo(size.width/2, 100, 0, 0);
+    path.quadraticBezierTo(size.width / 2, 100, 0, 0);
 
     return path;
   }
