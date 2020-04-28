@@ -63,7 +63,7 @@ class _CoffeePageState extends State<CoffeePage> {
             ),
           ),
           Positioned(
-            top: 250,
+            top: 247,
             left: 0,
             right: 0,
             bottom: 0,
@@ -71,6 +71,24 @@ class _CoffeePageState extends State<CoffeePage> {
               clipper: MyClipper(),
               child: Container(
                 // color: Colors.white,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.grey.withOpacity(0.5), Colors.white.withOpacity(0.5)],
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                  )
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 250,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: ClipPath(
+              clipper: MyClipper(),
+              child: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [Colors.white, Colors.white],
