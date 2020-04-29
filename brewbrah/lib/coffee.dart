@@ -107,12 +107,13 @@ class CupEdgeClipper extends CustomClipper<Path> {
     path.lineTo(0, size.height);
     path.lineTo(size.width, size.height);
     path.lineTo(size.width, 0);
-    path.quadraticBezierTo(size.width / 2, 100, 0, 0);
+    path.lineTo(0, 0);
+    path.addOval(Rect.fromLTWH(0, -50, size.width, 100));
     return path;
   }
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return false;
+    return true;
   }
 }
