@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3f46b69-195a-4054-8311-49b4fab19bd2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/coffee.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/coffee.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/wave.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/undraw_hello.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/undraw_hello2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/undraw_options.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/undraw_organizing_projects.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +70,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588182695744</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Cleaned up classes">
+      <created>1588182837483</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1588182837483</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -88,7 +96,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Coffee cup as good as its gonna get" />
     <MESSAGE value="The cup is PERFECT!" />
-    <option name="LAST_COMMIT_MESSAGE" value="The cup is PERFECT!" />
+    <MESSAGE value="Cleaned up classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up classes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
