@@ -1,17 +1,14 @@
+import 'package:brewbrah/wave.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class CoffeePage extends StatefulWidget {
+class Coffee extends StatefulWidget {
   @override
-  _CoffeePageState createState() => _CoffeePageState();
+  _CoffeeState createState() => _CoffeeState();
 }
 
-class _CoffeePageState extends State<CoffeePage> {
-  double _shadowEdge = 3;
-  double _elementTop = 250;
-  double _elementHeight = 100;
-
+class _CoffeeState extends State<Coffee> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +16,7 @@ class _CoffeePageState extends State<CoffeePage> {
       body: Stack(
         children: <Widget>[
           Positioned(
-            height: _elementTop,
+            height: 250,
             left: 0,
             right: 0,
             child: Container(
@@ -33,19 +30,19 @@ class _CoffeePageState extends State<CoffeePage> {
             ),
           ),
           Positioned(
-            top: _elementTop - _shadowEdge,
-            height: _elementHeight,
-            left: 0,
-            right: 0,
-            child: ClipOval(
-              child: Container(
-                color: Colors.grey.withOpacity(0.5),
-              ),
+            top: 40,
+            right: 20,
+            child: IconButton(
+              icon: Icon(Icons.grid_on),
+              color: Colors.white,
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Wave()));
+              },
             ),
           ),
           Positioned(
             top: 200,
-            height: _elementHeight,
+            height: 100,
             left: 0,
             right: 0,
             child: ClipOval(
@@ -61,19 +58,8 @@ class _CoffeePageState extends State<CoffeePage> {
             ),
           ),
           Positioned(
-            top: _elementTop - _shadowEdge,
-            height: _elementHeight,
-            left: 0,
-            right: 0,
-            child: ClipOval(
-              child: Container(
-                color: Colors.brown.withOpacity(0.5),
-              ),
-            ),
-          ),
-          Positioned(
-            top: _elementTop,
-            height: _elementHeight,
+            top: 250,
+            height: 100,
             left: 0,
             right: 0,
             child: ClipOval(
@@ -89,31 +75,22 @@ class _CoffeePageState extends State<CoffeePage> {
             ),
           ),
           Positioned(
-            top: _elementTop - _shadowEdge,
+            top: 250,
             left: 0,
             right: 0,
             bottom: 0,
             child: ClipPath(
-              clipper: MyClipper(),
-              child: Container(
-                color: Colors.grey.withOpacity(0.5),
-              ),
-            ),
-          ),
-          Positioned(
-            top: _elementTop,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: ClipPath(
-              clipper: MyClipper(),
+              clipper: CupEdgeClipper(),
               child: Container(
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
-                  colors: [Colors.white, Colors.white],
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                )),
+                      colors: [
+                        Colors.white,
+                        Colors.grey.shade400,
+                      ],
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                    )),
               ),
             ),
           ),
@@ -123,8 +100,7 @@ class _CoffeePageState extends State<CoffeePage> {
   }
 }
 
-class MyClipper extends CustomClipper<Path> {
-
+class CupEdgeClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = Path();
@@ -132,12 +108,11 @@ class MyClipper extends CustomClipper<Path> {
     path.lineTo(size.width, size.height);
     path.lineTo(size.width, 0);
     path.quadraticBezierTo(size.width / 2, 100, 0, 0);
-
     return path;
   }
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return true;
+    return false;
   }
 }

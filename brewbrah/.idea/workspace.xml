@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3f46b69-195a-4054-8311-49b4fab19bd2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/wave.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/coffee_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/coffee_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/coffee_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/coffee.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

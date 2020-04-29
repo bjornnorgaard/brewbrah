@@ -1,4 +1,4 @@
-import 'package:brewbrah/coffee_page.dart';
+import 'package:brewbrah/coffee.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -52,7 +52,7 @@ class Home extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => CoffeePage()),
+                          MaterialPageRoute(builder: (context) => Coffee()),
                         );
                       },
                     ),
