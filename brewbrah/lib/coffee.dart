@@ -15,7 +15,9 @@ class _CoffeeState extends State<Coffee> {
       body: Stack(
         children: <Widget>[
           Positioned(
-            height: 250,
+            // height: 250,
+            bottom: 0,
+            top: 0,
             left: 0,
             right: 0,
             child: Container(
@@ -31,8 +33,8 @@ class _CoffeeState extends State<Coffee> {
           Positioned(
             top: 200,
             height: 100,
-            left: 0,
-            right: 0,
+            left: 5,
+            right: 5,
             child: ClipOval(
               child: Container(
                 decoration: BoxDecoration(
@@ -48,8 +50,8 @@ class _CoffeeState extends State<Coffee> {
           Positioned(
             top: 250,
             height: 100,
-            left: 0,
-            right: 0,
+            left: 5,
+            right: 5,
             child: ClipOval(
               child: Container(
                 decoration: BoxDecoration(
@@ -64,8 +66,8 @@ class _CoffeeState extends State<Coffee> {
           ),
           Positioned(
             top: 250,
-            left: 0,
-            right: 0,
+            left: 5,
+            right: 5,
             bottom: 0,
             child: ClipPath(
               clipper: CupEdgeClipper(),
