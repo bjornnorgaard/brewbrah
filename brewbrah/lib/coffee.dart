@@ -1,4 +1,3 @@
-import 'package:brewbrah/wave.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -27,17 +26,6 @@ class _CoffeeState extends State<Coffee> {
                   end: Alignment.bottomLeft,
                 ),
               ),
-            ),
-          ),
-          Positioned(
-            top: 40,
-            right: 20,
-            child: IconButton(
-              icon: Icon(Icons.grid_on),
-              color: Colors.white,
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Wave()));
-              },
             ),
           ),
           Positioned(
