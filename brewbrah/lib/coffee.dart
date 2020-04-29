@@ -84,7 +84,38 @@ class _CoffeeState extends State<Coffee> {
               ),
             ),
           ),
+          Positioned(
+            bottom: 80,
+            left: 60,
+            child: AmountGaugeSlider(),
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class AmountGaugeSlider extends StatefulWidget {
+  @override
+  _AmountGaugeSliderState createState() => _AmountGaugeSliderState();
+}
+
+class _AmountGaugeSliderState extends State<AmountGaugeSlider> {
+  @override
+  Widget build(BuildContext context) {
+    return Transform(
+      transform: Matrix4.skewY(0.175),
+      child: Container(
+        height: 320,
+        width: 60,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          gradient: LinearGradient(
+            colors: [Colors.brown, Colors.black87],
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+          ),
+        ),
       ),
     );
   }
