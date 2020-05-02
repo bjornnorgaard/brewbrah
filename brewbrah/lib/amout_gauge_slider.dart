@@ -40,7 +40,6 @@ class _AmountGaugeSliderState extends State<AmountGaugeSlider> {
               max: 1000,
               divisions: 40,
               value: _value,
-              label: "${_value.toStringAsFixed(0)}",
               onChanged: (value) => setState(() => _value = value),
             ),
           ),
@@ -58,7 +57,11 @@ class SliderMarker extends StatelessWidget {
   final double bottom;
   final double left;
 
-  SliderMarker({@required this.text, @required this.bottom, @required this.left});
+  SliderMarker({
+    @required this.text,
+    @required this.bottom,
+    @required this.left,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -67,10 +70,15 @@ class SliderMarker extends StatelessWidget {
       left: left,
       child: RotatedBox(
         quarterTurns: 1,
-        child: Text(
-          text,
-          style: TextStyle(
-            color: Colors.black38,
+        child: GestureDetector(
+          onTap: () {
+            print("i was tapped");
+          },
+          child: Text(
+            text,
+            style: TextStyle(
+              color: Colors.black38,
+            ),
           ),
         ),
       ),
