@@ -1,4 +1,6 @@
+import 'package:brewbrah/brew_state.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 class RatioSlider extends StatefulWidget {
@@ -7,8 +9,6 @@ class RatioSlider extends StatefulWidget {
 }
 
 class _RatioSliderState extends State<RatioSlider> {
-  double _currentRatio = 14;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -49,7 +49,7 @@ class _RatioSliderState extends State<RatioSlider> {
               initialValue: 14,
               onChange: (value) {
                 setState(() {
-                  _currentRatio = value;
+                  Provider.of<BrewState>(context).setRatio(value.toInt());
                 });
               },
             ),

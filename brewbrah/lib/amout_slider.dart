@@ -1,20 +1,14 @@
+import 'package:brewbrah/brew_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class AmountGaugeSlider extends StatefulWidget {
+class AmountSlider extends StatefulWidget {
   @override
-  _AmountGaugeSliderState createState() => _AmountGaugeSliderState();
+  _AmountSliderState createState() => _AmountSliderState();
 }
 
-class _AmountGaugeSliderState extends State<AmountGaugeSlider> {
-  double _value;
-
-  @override
-  void initState() {
-    super.initState();
-    _value = 300;
-  }
-
+class _AmountSliderState extends State<AmountSlider> {
   @override
   Widget build(BuildContext context) {
     return RotatedBox(
@@ -39,8 +33,14 @@ class _AmountGaugeSliderState extends State<AmountGaugeSlider> {
               min: 0,
               max: 1000,
               divisions: 40,
-              value: _value,
-              onChanged: (value) => setState(() => _value = value),
+              value: Provider
+                  .of<BrewState>(context)
+                  .amount
+                  .toDouble(),
+              onChanged: (value) =>
+                  setState(
+                        () => Provider.of<BrewState>(context).setAmount(value.toInt()),
+                  ),
             ),
           ),
           SliderMarker(text: "300", bottom: -20, left: 122),
@@ -70,15 +70,10 @@ class SliderMarker extends StatelessWidget {
       left: left,
       child: RotatedBox(
         quarterTurns: 1,
-        child: GestureDetector(
-          onTap: () {
-            print("i was tapped");
-          },
-          child: Text(
-            text,
-            style: TextStyle(
-              color: Colors.black38,
-            ),
+        child: Text(
+          text,
+          style: TextStyle(
+            color: Colors.black38,
           ),
         ),
       ),

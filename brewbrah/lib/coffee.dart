@@ -1,8 +1,10 @@
-import 'package:brewbrah/amout_gauge_slider.dart';
+import 'package:brewbrah/amout_slider.dart';
+import 'package:brewbrah/brew_state.dart';
 import 'package:brewbrah/ratio_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 
 class Coffee extends StatefulWidget {
   @override
@@ -92,12 +94,24 @@ class _CoffeeState extends State<Coffee> {
             bottom: 50,
             left: 50,
             height: 400,
-            child: AmountGaugeSlider(),
+            child: AmountSlider(),
           ),
           Positioned(
             bottom: 45,
             right: 40,
             child: RatioSlider(),
+          ),
+          Positioned(
+            top: 400,
+            right: 70,
+            child: Consumer<BrewState>(builder: (context, brew, child) {
+              return Text(
+                "${brew.grounds.toStringAsFixed(1)}",
+                style: TextStyle(
+                  fontSize: 80,
+                ),
+              );
+            }),
           ),
         ],
       ),
