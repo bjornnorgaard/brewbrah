@@ -95,12 +95,9 @@ class _CoffeeState extends State<Coffee> {
             child: AmountGaugeSlider(),
           ),
           Positioned(
-            bottom: 40,
+            bottom: 45,
             right: 40,
-            child: Transform(
-              transform: Matrix4.skewY(-0.07),
-              child: RatioSlider(),
-            ),
+            child: RatioSlider(),
           ),
         ],
       ),
