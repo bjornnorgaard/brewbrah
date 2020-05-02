@@ -24,6 +24,7 @@ class _RatioSliderState extends State<RatioSlider> {
                 startAngle: 135,
                 angleRange: 270,
                 customColors: CustomSliderColors(
+                  dotColor: Colors.deepOrange,
                   progressBarColors: [
                     Colors.brown,
                     Colors.brown,
@@ -35,8 +36,8 @@ class _RatioSliderState extends State<RatioSlider> {
                 ),
                 customWidths: CustomSliderWidths(
                   handlerSize: 15,
-                  progressBarWidth: 20,
-                  trackWidth: 18,
+                  progressBarWidth: 10,
+                  trackWidth: 10,
                 ),
                 infoProperties: InfoProperties(
                   mainLabelStyle: TextStyle(fontSize: 70),

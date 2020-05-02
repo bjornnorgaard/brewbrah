@@ -17,7 +17,6 @@ class _CoffeeState extends State<Coffee> {
       body: Stack(
         children: <Widget>[
           Positioned(
-            // height: 250,
             bottom: 0,
             top: 0,
             left: 0,
@@ -90,16 +89,14 @@ class _CoffeeState extends State<Coffee> {
             ),
           ),
           Positioned(
-            bottom: 80,
-            left: 60,
-            child: Transform(
-              transform: Matrix4.skewY(0.175),
-              child: AmountGaugeSlider(),
-            ),
+            bottom: 50,
+            left: 50,
+            height: 400,
+            child: AmountGaugeSlider(),
           ),
           Positioned(
-            bottom: 80,
-            right: 50,
+            bottom: 40,
+            right: 40,
             child: Transform(
               transform: Matrix4.skewY(-0.07),
               child: RatioSlider(),

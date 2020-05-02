@@ -1,72 +1,76 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AmountGaugeSlider extends StatefulWidget {
-  final double height;
-
-  AmountGaugeSlider({this.height = 350});
-
   @override
   _AmountGaugeSliderState createState() => _AmountGaugeSliderState();
 }
 
 class _AmountGaugeSliderState extends State<AmountGaugeSlider> {
-  double _dragPosition = 0;
-  double _dragPercentage = 0;
+  double _value;
 
-  void _updateDragPosition(Offset val) {
-    double newDragPosition = 0;
-
-    if (val.dy <= 0) {
-      newDragPosition = 0;
-    } else if (val.dy >= widget.height) {
-      newDragPosition = widget.height;
-    } else {
-      newDragPosition = val.dy;
-    }
-
-    setState(() {
-      _dragPosition = newDragPosition;
-      _dragPercentage = (_dragPosition / widget.height - 1) * -1;
-    });
-  }
-
-  void _onDragStart(BuildContext context, DragStartDetails start) {
-    RenderBox box = context.findRenderObject();
-    Offset offset = box.globalToLocal(start.globalPosition);
-    _updateDragPosition(offset);
-  }
-
-  void _onDragUpdate(BuildContext context, DragUpdateDetails update) {
-    RenderBox box = context.findRenderObject();
-    Offset offset = box.globalToLocal(update.globalPosition);
-    _updateDragPosition(offset);
-  }
-
-  void _onDragEnd(BuildContext context, DragEndDetails update) {
-    setState(() {
-      // Something...
-    });
+  @override
+  void initState() {
+    super.initState();
+    _value = 300;
   }
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onVerticalDragUpdate: (update) => _onDragUpdate(context, update),
-      onVerticalDragStart: (start) => _onDragStart(context, start),
-      onVerticalDragEnd: (end) => _onDragEnd(context, end),
-      child: Container(
-        height: 320,
-        width: 60,
+    return RotatedBox(
+      quarterTurns: 3,
+      child: Stack(
+        overflow: Overflow.visible,
+        children: <Widget>[
+          SliderTheme(
+            data: SliderTheme.of(context).copyWith(
+              thumbColor: Colors.deepOrange,
+              inactiveTrackColor: Colors.grey,
+              activeTrackColor: Colors.black,
+              trackHeight: 10,
+              disabledActiveTrackColor: Colors.blue,
+              overlayColor: Colors.transparent,
+              thumbShape: RoundSliderThumbShape(
+                enabledThumbRadius: 15,
+                disabledThumbRadius: 0,
+              ),
+            ),
+            child: Slider(
+              min: 0,
+              max: 1000,
+              divisions: 40,
+              value: _value,
+              label: "${_value.toStringAsFixed(0)}",
+              onChanged: (value) => setState(() => _value = value),
+            ),
+          ),
+          SliderMarker(text: "300", bottom: -20, left: 122),
+          SliderMarker(text: "600", bottom: -20, left: 227),
+          SliderMarker(text: "900", bottom: -20, left: 333),
+        ],
+      ),
+    );
+  }
+}
+
+class SliderMarker extends StatelessWidget {
+  final String text;
+  final double bottom;
+  final double left;
+
+  SliderMarker({@required this.text, @required this.bottom, @required this.left});
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      bottom: bottom,
+      left: left,
+      child: RotatedBox(
+        quarterTurns: 1,
         child: Text(
-          "${(_dragPercentage * 1000).toStringAsFixed(0)}\ngram",
-          style: TextStyle(fontSize: 30, color: Colors.grey),
-        ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          gradient: LinearGradient(
-            colors: [Colors.brown, Colors.black87],
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
+          text,
+          style: TextStyle(
+            color: Colors.black38,
           ),
         ),
       ),
