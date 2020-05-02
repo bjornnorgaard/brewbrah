@@ -98,20 +98,34 @@ class _CoffeeState extends State<Coffee> {
           ),
           Positioned(
             bottom: 45,
-            right: 40,
+            right: 60,
             child: RatioSlider(),
           ),
           Positioned(
-            top: 400,
-            right: 70,
-            child: Consumer<BrewState>(builder: (context, brew, child) {
-              return Text(
-                "${brew.grounds.toStringAsFixed(1)}",
-                style: TextStyle(
-                  fontSize: 80,
-                ),
-              );
-            }),
+            top: 350,
+            right: 100,
+            child: Consumer<BrewState>(
+              builder: (context, brew, child) {
+                return Column(
+                  children: <Widget>[
+                    Text(
+                      "${brew.amount} divided by ${brew.ratio} is",
+                      style: TextStyle(fontSize: 15, color: Colors.grey),
+                    ),
+                    Text(
+                      "${brew.grounds.toStringAsFixed(1)}",
+                      style: TextStyle(
+                        fontSize: 80,
+                      ),
+                    ),
+                    Text(
+                      "grams of good coffee",
+                      style: TextStyle(fontSize: 15, color: Colors.grey),
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
         ],
       ),

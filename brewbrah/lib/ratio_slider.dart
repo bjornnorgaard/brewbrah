@@ -46,10 +46,10 @@ class _RatioSliderState extends State<RatioSlider> {
               ),
               min: 1,
               max: 30,
-              initialValue: 14,
+              initialValue: 15,
               onChange: (value) {
                 setState(() {
-                  Provider.of<BrewState>(context).setRatio(value.toInt());
+                  Provider.of<BrewState>(context).setRatio(value.ceil());
                 });
               },
             ),
