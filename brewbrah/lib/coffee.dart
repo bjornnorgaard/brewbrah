@@ -26,10 +26,7 @@ class _CoffeeState extends State<Coffee> {
             child: Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [
-                    Colors.orangeAccent,
-                    Colors.deepOrange,
-                  ],
+                  colors: [Colors.orangeAccent, Colors.deepOrange],
                   begin: Alignment.topRight,
                   end: Alignment.centerLeft,
                 ),
