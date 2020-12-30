@@ -13,10 +13,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Brewbrah',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-            fontFamily: "Raleway"
-        ),
+        theme: ThemeData(primarySwatch: Colors.blue, fontFamily: "Raleway"),
         home: Coffee(),
       ),
     );

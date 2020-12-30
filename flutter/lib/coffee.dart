@@ -77,13 +77,13 @@ class _CoffeeState extends State<Coffee> {
               child: Container(
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [
-                        Colors.white,
-                        Colors.grey.shade400,
-                      ],
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                    )),
+                  colors: [
+                    Colors.white,
+                    Colors.grey.shade400,
+                  ],
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                )),
               ),
             ),
           ),
