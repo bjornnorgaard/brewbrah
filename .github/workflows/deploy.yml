@@ -5,7 +5,7 @@ on:
     paths:
       - "angular/*"
     branches:
-      - master
+      - main
 
 jobs:
   Deploy:
