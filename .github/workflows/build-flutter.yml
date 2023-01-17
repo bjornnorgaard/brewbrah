@@ -1,11 +1,16 @@
 name: Build Flutter
 
 on:
-  pull_request:
+  push:
+    branches: ["main"]
     paths:
-      - "flutter/*"
-    branches:
-      - master
+      - "flutter/**"
+      - ".github/**/flutter.yml"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "flutter/**"
+      - ".github/**/flutter.yml"
 
 jobs:
   Build:
