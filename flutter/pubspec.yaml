@@ -13,7 +13,7 @@ dependencies:
   sleek_circular_slider: 1.1.0
   provider: ^3.0.0
 
-  cupertino_icons: ^0.1.2
+  cupertino_icons: ">=0.1.2 <2.0.0"
 
 dev_dependencies:
   flutter_test:
