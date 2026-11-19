@@ -9,6 +9,7 @@ RUN npm run build
 
 # Runtime: adapter-node bundles everything it needs, so no node_modules.
 FROM node:22-alpine AS run
+LABEL org.opencontainers.image.source="https://github.com/bjornnorgaard/brewbrah"
 WORKDIR /app
 ENV NODE_ENV=production \
     HOST=0.0.0.0 \
