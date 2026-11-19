@@ -7,7 +7,7 @@ test.describe('calculator', () => {
 		await page.goto('/');
 		await ready(page);
 		await expect(page.getByTestId('coffee')).toContainText('31.3');
-		await expect(page.getByTestId('water')).toContainText('563');
+		await expect(page.getByTestId('water')).toContainText('500');
 
 		await page.getByRole('button', { name: 'Set Brew ratio to 15' }).click();
 		await expect(page.getByTestId('coffee')).toContainText('33.3');
@@ -18,7 +18,7 @@ test.describe('calculator', () => {
 		await ready(page);
 		await page.getByRole('spinbutton', { name: 'How much coffee?' }).fill('1000');
 		await expect(page.getByTestId('coffee')).toContainText('62.5');
-		await expect(page.getByTestId('water')).toContainText('1125');
+		await expect(page.getByTestId('water')).toContainText('1000');
 	});
 
 	test('stepper buttons adjust the amount', async ({ page }) => {
@@ -39,7 +39,7 @@ test.describe('calculator', () => {
 	});
 
 	test('restores values from a share link', async ({ page }) => {
-		await page.goto('/?y=1000&r=15&a=2');
+		await page.goto('/?y=1000&r=15');
 		await ready(page);
 		await expect(page.getByTestId('coffee')).toContainText('66.7');
 	});

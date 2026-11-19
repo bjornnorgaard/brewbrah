@@ -3,8 +3,6 @@ export interface BrewInput {
 	yieldMl: number;
 	/** Coffee-to-water ratio, expressed as 1:ratio. */
 	ratio: number;
-	/** Grams of water retained per gram of dry coffee. */
-	absorption: number;
 }
 
 export interface BrewResult {
@@ -16,8 +14,7 @@ export interface BrewResult {
 
 export const LIMITS = {
 	yieldMl: { min: 150, max: 1200, step: 10, default: 500 },
-	ratio: { min: 3, max: 25, step: 0.5, default: 16 },
-	absorption: { min: 0, max: 3, step: 0.1, default: 2 }
+	ratio: { min: 3, max: 25, step: 0.5, default: 16 }
 } as const;
 
 export function round(value: number, decimals = 0): number {
@@ -32,14 +29,12 @@ export function clamp(value: number, min: number, max: number): number {
 
 /**
  * coffee = yield / ratio
- * water  = yield + coffee * absorption (the grounds soak some up)
+ * water  = yield (no water is assumed to be absorbed by the grounds)
  */
-export function calculate({ yieldMl, ratio, absorption }: BrewInput): BrewResult {
+export function calculate({ yieldMl, ratio }: BrewInput): BrewResult {
 	const y = clamp(yieldMl, 0, Infinity);
 	const r = clamp(ratio, 0.1, Infinity);
-	const a = clamp(absorption, 0, Infinity);
-	const coffee = y / r;
-	return { coffee: round(coffee, 1), water: round(y + coffee * a, 0) };
+	return { coffee: round(y / r, 1), water: round(y, 0) };
 }
 
 export type VesselId = 'cup' | 'mug' | 'carafe' | 'pitcher';

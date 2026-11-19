@@ -10,18 +10,15 @@ function num(v: unknown, min: number, max: number, fallback: number): number {
 export class BrewState {
 	yieldMl = $state<number>(LIMITS.yieldMl.default);
 	ratio = $state<number>(LIMITS.ratio.default);
-	absorption = $state<number>(LIMITS.absorption.default);
 
-	result = $derived(
-		calculate({ yieldMl: this.yieldMl, ratio: this.ratio, absorption: this.absorption })
-	);
+	result = $derived(calculate({ yieldMl: this.yieldMl, ratio: this.ratio }));
 
-	/** Restore from ?y/r/a query params (used by guide links) or localStorage. */
+	/** Restore from ?y/r query params (used by guide links) or localStorage. */
 	hydrate(search: string) {
 		let source: Record<string, unknown>;
 		const q = new URLSearchParams(search);
-		if (q.has('y') || q.has('r') || q.has('a')) {
-			source = { yieldMl: q.get('y'), ratio: q.get('r'), absorption: q.get('a') };
+		if (q.has('y') || q.has('r')) {
+			source = { yieldMl: q.get('y'), ratio: q.get('r') };
 		} else {
 			try {
 				source = JSON.parse(localStorage.getItem(KEY) ?? '{}');
@@ -32,12 +29,6 @@ export class BrewState {
 		const L = LIMITS;
 		this.yieldMl = num(source.yieldMl, L.yieldMl.min, L.yieldMl.max, L.yieldMl.default);
 		this.ratio = num(source.ratio, L.ratio.min, L.ratio.max, L.ratio.default);
-		this.absorption = num(
-			source.absorption,
-			L.absorption.min,
-			L.absorption.max,
-			L.absorption.default
-		);
 	}
 
 	persist() {
@@ -47,8 +38,7 @@ export class BrewState {
 				KEY,
 				JSON.stringify({
 					yieldMl: this.yieldMl,
-					ratio: this.ratio,
-					absorption: this.absorption
+					ratio: this.ratio
 				})
 			);
 		} catch {

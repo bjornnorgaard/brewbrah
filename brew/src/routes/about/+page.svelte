@@ -14,10 +14,6 @@
 			a: 'A good starting point for filter coffee is 1:16 — one gram of coffee for every sixteen grams of water. Go lower (1:15) for a stronger cup, higher (1:17) for a lighter one.'
 		},
 		{
-			q: 'Why does brew tell me to pour more water than I want to drink?',
-			a: 'Coffee grounds soak up about twice their weight in water. To end up with the amount you want in the cup, you need to pour in a little extra.'
-		},
-		{
 			q: 'Is it grams or millilitres?',
 			a: 'For water, one millilitre weighs one gram, so you can use either. Weighing on a scale is more accurate and less messy.'
 		}

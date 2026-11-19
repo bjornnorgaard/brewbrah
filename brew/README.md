@@ -23,6 +23,6 @@ healthcheck on `/readyz` (liveness: `/healthz`). Set `ORIGIN` to the public URL 
 
 ## Notes
 
-- Share links: `/?y=<ml>&r=<ratio>&a=<absorption>`; last brew is kept in `localStorage`.
+- Share links: `/?y=<ml>&r=<ratio>`; last brew is kept in `localStorage`.
 - SEO: per-page title/description/canonical/OpenGraph/Twitter, JSON-LD (WebApplication, FAQPage), `sitemap.xml`, `robots.txt`, web manifest. All pages are prerendered.
 - Imports use Kit 3's `#lib/...` alias (with the file extension).

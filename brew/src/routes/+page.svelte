@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fly, fade } from 'svelte/transition';
-	import { ChevronDown } from '@lucide/svelte';
+	import { fly } from 'svelte/transition';
 	import Seo from '#lib/components/Seo.svelte';
 	import AnimatedNumber from '#lib/components/AnimatedNumber.svelte';
 	import CoffeeCup from '#lib/components/CoffeeCup.svelte';
@@ -25,7 +24,6 @@
 		{ value: 20, label: '20' },
 		{ value: 25, label: '25' }
 	];
-	const ABSORPTION_MARKS = [0, 1, 2, 3].map((value) => ({ value, label: String(value) }));
 
 	const brew = new BrewState();
 	let ready = $state(false);
@@ -37,7 +35,7 @@
 
 	$effect(() => {
 		// track every field, then persist
-		void [brew.yieldMl, brew.ratio, brew.absorption];
+		void [brew.yieldMl, brew.ratio];
 		if (ready) brew.persist();
 	});
 
@@ -109,28 +107,4 @@
 		max={LIMITS.ratio.max}
 		step={LIMITS.ratio.step}
 	/>
-
-	<details class="group">
-		<summary
-			class="flex cursor-pointer list-none items-center justify-between text-sm font-medium text-surface-700-300"
-		>
-			Advanced
-			<ChevronDown size={18} class="transition-transform duration-300 group-open:rotate-180" />
-		</summary>
-		<div class="pt-5" transition:fade>
-			<SliderField
-				id="absorption"
-				label="Water absorbed by grounds"
-				unit="g/g"
-				bind:value={brew.absorption}
-				marks={ABSORPTION_MARKS}
-				min={LIMITS.absorption.min}
-				max={LIMITS.absorption.max}
-				step={LIMITS.absorption.step}
-			/>
-			<p class="mt-2 text-xs text-surface-600-400">
-				Wet grounds hold roughly 2 g of water per gram of coffee, so you pour a bit extra.
-			</p>
-		</div>
-	</details>
 </section>

@@ -19,20 +19,20 @@ describe('clamp', () => {
 
 describe('calculate', () => {
 	it('computes coffee from yield and ratio', () => {
-		expect(calculate({ yieldMl: 1000, ratio: 16, absorption: 0 })).toEqual({
+		expect(calculate({ yieldMl: 1000, ratio: 16 })).toEqual({
 			coffee: 62.5,
 			water: 1000
 		});
 	});
 
-	it('adds absorbed water on top of the desired yield', () => {
-		const { coffee, water } = calculate({ yieldMl: 1000, ratio: 17, absorption: 2 });
+	it('assumes no water is absorbed by the grounds', () => {
+		const { coffee, water } = calculate({ yieldMl: 1000, ratio: 17 });
 		expect(coffee).toBe(58.8);
-		expect(water).toBe(1118);
+		expect(water).toBe(1000);
 	});
 
 	it('never divides by zero or goes negative', () => {
-		const r = calculate({ yieldMl: 500, ratio: 0, absorption: -1 });
+		const r = calculate({ yieldMl: 500, ratio: 0 });
 		expect(Number.isFinite(r.coffee)).toBe(true);
 		expect(r.water).toBeGreaterThanOrEqual(0);
 	});
