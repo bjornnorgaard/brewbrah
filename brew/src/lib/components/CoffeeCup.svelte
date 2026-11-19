@@ -12,6 +12,8 @@
 		/** Liquid surface range (y). */
 		top: number;
 		bottom: number;
+		/** How full (0..1) the vessel looks at the top of its range. */
+		maxLevel: number;
 		/** y of the bottom edge of the body path (stroke centre). */
 		base: number;
 		/** Extra strokes (handles, lids...). */
@@ -23,6 +25,7 @@
 	// Table line is at y=98. All shapes are drawn in a 120-wide box.
 	const SHAPES: Record<VesselId, Shape> = {
 		cup: {
+			maxLevel: 0.78,
 			base: 92,
 			body: 'M32 52h56l-7 34a8 8 0 0 1-8 6H47a8 8 0 0 1-8-6z',
 			top: 52,
@@ -31,6 +34,7 @@
 			steamDy: 20
 		},
 		mug: {
+			maxLevel: 0.78,
 			base: 92,
 			body: 'M20 34h68v34a24 24 0 0 1-24 24H44a24 24 0 0 1-24-24z',
 			top: 34,
@@ -39,6 +43,7 @@
 			steamDy: 0
 		},
 		carafe: {
+			maxLevel: 0.95,
 			base: 100,
 			body: 'M47 20h26v16c0 6 17 8 17 20v34a10 10 0 0 1-10 10H40a10 10 0 0 1-10-10V56c0-12 17-14 17-20z',
 			top: 30,
@@ -47,6 +52,7 @@
 			steamDy: -12
 		},
 		pitcher: {
+			maxLevel: 0.95,
 			base: 98,
 			body: 'M34 36h52v54a8 8 0 0 1-8 8H42a8 8 0 0 1-8-8z',
 			top: 42,
@@ -63,7 +69,7 @@
 	const GAP = 5;
 	const lift = $derived(96 - GAP - shape.base);
 
-	const level = Tween.of(() => 0.5 + fillWithin(ml, vessel) * 0.45, {
+	const level = Tween.of(() => 0.5 + fillWithin(ml, vessel) * (shape.maxLevel - 0.5), {
 		duration: 600,
 		easing: cubicOut
 	});

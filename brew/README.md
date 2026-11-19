@@ -19,7 +19,7 @@ docker compose up --build   # http://localhost:3080
 ```
 
 Node 22 alpine, ~20 MiB RSS idle, heap capped at 64 MiB (`NODE_OPTIONS`), non-root, read-only filesystem,
-healthcheck on `/healthz`. Set `ORIGIN` to the public URL when deploying (`https://brew.bybear.dk` is the image default).
+healthcheck on `/readyz` (liveness: `/healthz`). Set `ORIGIN` to the public URL when deploying (`https://brew.bybear.dk` is the image default).
 
 ## Notes
 

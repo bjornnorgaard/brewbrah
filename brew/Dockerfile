@@ -17,8 +17,8 @@ ENV NODE_ENV=production \
     NODE_OPTIONS="--max-old-space-size=64"
 COPY --from=build --chown=node:node /app/build ./build
 COPY --chown=node:node package.json ./
-USER node
+USER 1000
 EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s \
-  CMD node -e "fetch('http://127.0.0.1:3000/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+  CMD node -e "fetch('http://127.0.0.1:3000/readyz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
 CMD ["node", "build"]
