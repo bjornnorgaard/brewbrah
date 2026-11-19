@@ -1,0 +1,101 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton/themes/sahara';
+@source '../../node_modules/@skeletonlabs/skeleton-svelte/dist';
+
+/* Warm espresso neutrals on top of Skeleton's sahara accent colours */
+[data-theme='sahara'] {
+	--color-surface-50: oklch(97% 0.012 68deg);
+	--color-surface-100: oklch(93% 0.02 68deg);
+	--color-surface-200: oklch(86% 0.03 68deg);
+	--color-surface-300: oklch(76% 0.04 68deg);
+	--color-surface-400: oklch(66% 0.05 68deg);
+	--color-surface-500: oklch(56% 0.055 68deg);
+	--color-surface-600: oklch(47% 0.05 68deg);
+	--color-surface-700: oklch(39% 0.045 68deg);
+	--color-surface-800: oklch(31% 0.04 68deg);
+	--color-surface-900: oklch(25% 0.035 68deg);
+	--color-surface-950: oklch(19% 0.03 68deg);
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+	color-scheme: light dark;
+	-webkit-tap-highlight-color: transparent;
+	overscroll-behavior-y: none;
+}
+html.dark {
+	color-scheme: dark;
+}
+html.light {
+	color-scheme: light;
+}
+
+body {
+	min-height: 100dvh;
+	background-color: var(--color-surface-50-950);
+	color: var(--color-surface-950-50);
+}
+
+/* Cross-page view transitions */
+@keyframes page-in {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+}
+@keyframes page-out {
+	to {
+		opacity: 0;
+		transform: translateY(-8px);
+	}
+}
+::view-transition-old(root) {
+	animation: 160ms ease-in both page-out;
+}
+::view-transition-new(root) {
+	animation: 260ms ease-out both page-in;
+}
+
+@keyframes steam {
+	0% {
+		opacity: 0;
+		transform: translateY(6px) scaleX(0.9);
+	}
+	40% {
+		opacity: 0.7;
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-26px) scaleX(1.15);
+	}
+}
+.steam {
+	animation: steam 3.2s ease-in-out infinite;
+	transform-box: fill-box;
+	transform-origin: center;
+}
+.steam:nth-child(2) {
+	animation-delay: 1s;
+}
+.steam:nth-child(3) {
+	animation-delay: 2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001ms !important;
+	}
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important;
+	}
+}

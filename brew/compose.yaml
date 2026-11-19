@@ -1,0 +1,14 @@
+# Local production-like run:  docker compose up --build  →  http://localhost:3080
+services:
+  brew:
+    build: .
+    image: brew:local
+    ports:
+      - '3080:3000'
+    environment:
+      ORIGIN: http://localhost:3080
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ['no-new-privileges:true']
+    mem_limit: 128m
+    restart: unless-stopped
