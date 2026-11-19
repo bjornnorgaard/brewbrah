@@ -17,13 +17,7 @@
 		{ value: 1000, label: '1000' },
 		{ value: 1200, label: '1200' }
 	];
-	const RATIO_MARKS = [
-		{ value: 3, label: '3' },
-		{ value: 10, label: '10' },
-		{ value: 15, label: '15' },
-		{ value: 20, label: '20' },
-		{ value: 25, label: '25' }
-	];
+	const RATIO_MARKS = [4, 8, 12, 16, 20, 24].map((value) => ({ value, label: String(value) }));
 
 	const brew = new BrewState();
 	let ready = $state(false);

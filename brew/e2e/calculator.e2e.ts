@@ -9,8 +9,8 @@ test.describe('calculator', () => {
 		await expect(page.getByTestId('coffee')).toContainText('31.3');
 		await expect(page.getByTestId('water')).toContainText('500');
 
-		await page.getByRole('button', { name: 'Set Brew ratio to 15' }).click();
-		await expect(page.getByTestId('coffee')).toContainText('33.3');
+		await page.getByRole('button', { name: 'Set Brew ratio to 12' }).click();
+		await expect(page.getByTestId('coffee')).toContainText('41.7');
 	});
 
 	test('typing an amount recalculates', async ({ page }) => {
@@ -33,9 +33,9 @@ test.describe('calculator', () => {
 		await ready(page);
 		await page.getByRole('button', { name: 'Set How much coffee? to 1000' }).click();
 		await expect(page.getByRole('spinbutton', { name: 'How much coffee?' })).toHaveValue('1000');
-		await page.getByRole('button', { name: 'Set Brew ratio to 10' }).click();
-		await expect(page.getByRole('spinbutton', { name: 'Brew ratio' })).toHaveValue('10');
-		await expect(page.getByTestId('coffee')).toContainText('100.0');
+		await page.getByRole('button', { name: 'Set Brew ratio to 8' }).click();
+		await expect(page.getByRole('spinbutton', { name: 'Brew ratio' })).toHaveValue('8');
+		await expect(page.getByTestId('coffee')).toContainText('125.0');
 	});
 
 	test('restores values from a share link', async ({ page }) => {
@@ -47,10 +47,10 @@ test.describe('calculator', () => {
 	test('remembers the last brew across reloads', async ({ page }) => {
 		await page.goto('/');
 		await ready(page);
-		await page.getByRole('button', { name: 'Set Brew ratio to 10' }).click();
+		await page.getByRole('button', { name: 'Set Brew ratio to 8' }).click();
 		await page.reload();
 		await ready(page);
-		await expect(page.getByRole('spinbutton', { name: 'Brew ratio' })).toHaveValue('10');
+		await expect(page.getByRole('spinbutton', { name: 'Brew ratio' })).toHaveValue('8');
 	});
 
 	test('navigates to the guide', async ({ page }) => {
