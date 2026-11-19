@@ -20,7 +20,17 @@
 	--color-surface-950: oklch(19% 0.03 68deg);
 }
 
-@custom-variant dark (&:where(.dark, .dark *));
+/* Follow the OS preference unless the user has explicitly picked a theme with the toggle. */
+@custom-variant dark {
+	&:where(.dark, .dark *) {
+		@slot;
+	}
+	@media (prefers-color-scheme: dark) {
+		&:where(:not(.light, .light *)) {
+			@slot;
+		}
+	}
+}
 
 html {
 	color-scheme: light dark;

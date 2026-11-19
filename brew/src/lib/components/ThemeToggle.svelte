@@ -4,12 +4,26 @@
 
 	let dark = $state(false);
 
+	/** The user's explicit choice, if any. Otherwise we follow the OS. */
+	function stored(): 'dark' | 'light' | null {
+		try {
+			const t = localStorage.getItem('brew:theme');
+			return t === 'dark' || t === 'light' ? t : null;
+		} catch {
+			return null;
+		}
+	}
+
 	onMount(() => {
-		dark = document.documentElement.classList.contains('dark')
-			? true
-			: document.documentElement.classList.contains('light')
-				? false
-				: matchMedia('(prefers-color-scheme: dark)').matches;
+		const mq = matchMedia('(prefers-color-scheme: dark)');
+		const sync = () => {
+			const choice = stored();
+			dark = choice ? choice === 'dark' : mq.matches;
+		};
+		sync();
+		// Live-follow the OS (e.g. automatic sunset switching) while no explicit choice is saved.
+		mq.addEventListener('change', sync);
+		return () => mq.removeEventListener('change', sync);
 	});
 
 	function toggle() {

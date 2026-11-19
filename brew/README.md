@@ -21,6 +21,12 @@ docker compose up --build   # http://localhost:3080
 Node 22 alpine, ~20 MiB RSS idle, heap capped at 64 MiB (`NODE_OPTIONS`), non-root, read-only filesystem,
 healthcheck on `/readyz` (liveness: `/healthz`). Set `ORIGIN` to the public URL when deploying (`https://brew.bybear.dk` is the image default).
 
+## Deploy
+
+There is no CI for brew. Deploys are manual: ask Claude to run the `deploy-brew` skill
+(`.claude/skills/deploy-brew/SKILL.md`) — verify, build a `linux/amd64` image, push it to
+`ghcr.io/bjornnorgaard/brewbrah/brew`, pin the tag in `deploy/mimir/services.prod.yaml` and push `main`.
+
 ## Notes
 
 - Share links: `/?y=<ml>&r=<ratio>`; last brew is kept in `localStorage`.
