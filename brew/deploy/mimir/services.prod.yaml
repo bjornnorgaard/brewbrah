@@ -1,7 +1,7 @@
 services:
   brew:
     image:
-      tag: "26.11.19-09.18-73db76c" # CI pins this; keep the quotes and this exact nesting
+      tag: "26.11.19-09.26-4b1c21c" # CI pins this; keep the quotes and this exact nesting
     ports:
       - name: http
         containerPort: 3000
