@@ -7,3 +7,5 @@ bun.lockb
 
 # Miscellaneous
 /static/
+# pin-image-tag.sh requires double-quoted tag in this file
+deploy/mimir/
