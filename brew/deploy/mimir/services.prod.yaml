@@ -1,7 +1,7 @@
 services:
   brew:
     image:
-      tag: "26.11.19-09.36-75f866f" # pinned by the deploy-brew skill; keep the quotes and this exact nesting
+      tag: "26.11.19-09.38-1b19e7a" # pinned by the deploy-brew skill; keep the quotes and this exact nesting
     ports:
       - name: http
         containerPort: 3000
