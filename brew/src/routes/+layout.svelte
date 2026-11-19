@@ -30,7 +30,12 @@
 	>
 		<a href="/" class="flex items-center gap-2 text-2xl font-bold tracking-tight">
 			<Coffee size={26} class="text-primary-500" />
-			brew
+			<span class="flex items-baseline gap-1.5">
+				brew
+				<span class="font-byline text-base font-normal tracking-normal text-surface-700-300 italic">
+					by bear
+				</span>
+			</span>
 		</a>
 		<div class="flex items-center gap-2">
 			<nav class="hidden items-center gap-1 md:flex" aria-label="Main">

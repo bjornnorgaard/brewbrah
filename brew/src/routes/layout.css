@@ -1,9 +1,14 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 
+@import '@fontsource/instrument-serif/latin-400-italic.css';
 @import '@skeletonlabs/skeleton';
 @import '@skeletonlabs/skeleton/themes/sahara';
 @source '../../node_modules/@skeletonlabs/skeleton-svelte/dist';
+
+@theme {
+	--font-byline: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+}
 
 /* Warm espresso neutrals on top of Skeleton's sahara accent colours */
 [data-theme='sahara'] {
