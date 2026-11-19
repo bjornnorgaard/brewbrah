@@ -30,5 +30,5 @@ There is no CI for brew. Deploys are manual: ask Claude to run the `deploy-brew`
 ## Notes
 
 - Share links: `/?y=<ml>&r=<ratio>`; last brew is kept in `localStorage`.
-- SEO: per-page title/description/canonical/OpenGraph/Twitter, JSON-LD (WebApplication, FAQPage), `sitemap.xml`, `robots.txt`, web manifest. All pages are prerendered.
+- SEO: per-page title/description/canonical/OpenGraph/Twitter, JSON-LD (WebApplication), `sitemap.xml`, `robots.txt`, web manifest. The page is prerendered.
 - Imports use Kit 3's `#lib/...` alias (with the file extension).

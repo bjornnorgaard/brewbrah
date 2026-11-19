@@ -13,7 +13,7 @@ export class BrewState {
 
 	result = $derived(calculate({ yieldMl: this.yieldMl, ratio: this.ratio }));
 
-	/** Restore from ?y/r query params (used by guide links) or localStorage. */
+	/** Restore from ?y/r query params (deep links) or localStorage. */
 	hydrate(search: string) {
 		let source: Record<string, unknown>;
 		const q = new URLSearchParams(search);

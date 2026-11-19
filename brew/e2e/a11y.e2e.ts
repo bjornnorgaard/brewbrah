@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
-for (const path of ['/', '/about']) {
+for (const path of ['/']) {
 	for (const scheme of ['light', 'dark'] as const) {
 		test(`no serious a11y violations on ${path} (${scheme})`, async ({ page }) => {
 			await page.emulateMedia({ colorScheme: scheme });

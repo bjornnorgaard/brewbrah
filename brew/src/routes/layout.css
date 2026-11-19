@@ -55,26 +55,6 @@ body {
 	color: var(--color-surface-950-50);
 }
 
-/* Cross-page view transitions */
-@keyframes page-in {
-	from {
-		opacity: 0;
-		transform: translateY(12px);
-	}
-}
-@keyframes page-out {
-	to {
-		opacity: 0;
-		transform: translateY(-8px);
-	}
-}
-::view-transition-old(root) {
-	animation: 160ms ease-in both page-out;
-}
-::view-transition-new(root) {
-	animation: 260ms ease-out both page-in;
-}
-
 @keyframes steam {
 	0% {
 		opacity: 0;
@@ -107,10 +87,5 @@ body {
 		animation-duration: 0.001ms !important;
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.001ms !important;
-	}
-	::view-transition-group(*),
-	::view-transition-old(*),
-	::view-transition-new(*) {
-		animation: none !important;
 	}
 }

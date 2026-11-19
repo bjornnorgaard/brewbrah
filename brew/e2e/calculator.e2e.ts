@@ -52,12 +52,4 @@ test.describe('calculator', () => {
 		await ready(page);
 		await expect(page.getByRole('spinbutton', { name: 'Brew ratio' })).toHaveValue('8');
 	});
-
-	test('navigates to the guide', async ({ page }) => {
-		await page.goto('/');
-		await ready(page);
-		await page.getByRole('link', { name: 'Guide' }).first().click();
-		await expect(page).toHaveURL(/\/about$/);
-		await expect(page.getByRole('heading', { level: 1, name: 'Coffee ratio guide' })).toBeVisible();
-	});
 });
